@@ -1,9 +1,13 @@
 export default class ErrorRepository { 
   constructor() {
-    this.errors = new Map();
+    this.map = new Map();
   }
 
   translate(errorCode) {
-    return this.errors.get(errorCode);
+    if(this.map.has(errorCode)) {
+      return this.map.get(errorCode);
+    } else {
+      return 'Unknown error';
+    }
   }
 }
